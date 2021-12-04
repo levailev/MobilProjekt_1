@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onPause() {
-
+        super.onPause()
+        running = false
+        sensorManager?.unregisterListener(this)
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
