@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SensorEventListener {
     var running = false
     var sensorManager: SensorManager? = null
 
@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        super.onPause()
-        running = false
-        sensorManager?.unregisterListener(this)
+
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
